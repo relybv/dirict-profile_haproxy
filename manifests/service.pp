@@ -5,10 +5,4 @@
 #
 class profile_haproxy::service {
 
-  service { $::profile_haproxy::service_name:
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
-  }
 }

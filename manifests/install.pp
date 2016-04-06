@@ -3,8 +3,5 @@
 # This class is called from profile_haproxy for install.
 #
 class profile_haproxy::install {
-
-  package { $::profile_haproxy::package_name:
-    ensure => present,
-  }
+  class { 'haproxy': }
 }

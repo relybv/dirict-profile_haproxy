@@ -4,6 +4,8 @@
 # It sets variables according to platform.
 #
 class profile_haproxy::params {
+  $member_ips = $::member_ips
+  $member_names = $::member_names
   case $::osfamily {
     'Debian': {
       $package_name = 'profile_haproxy'
