@@ -24,6 +24,17 @@ class profile_haproxy::config {
     },
   }
 
+  haproxy::listen { 'haproxy443':
+    collect_exported => false,
+    ipaddress        => '*',
+    ports            => '443',
+    mode             => 'tcp',
+    options          => {
+      'option'  => ['tcp-request'],
+      'balance' => 'roundrobin',
+    },
+  }
+
   haproxy::balancermember { 'haproxy':
     listening_service => 'haproxy80',
     server_names      => $profile_haproxy::member_names,
