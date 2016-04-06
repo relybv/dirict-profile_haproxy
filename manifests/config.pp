@@ -29,19 +29,25 @@ class profile_haproxy::config {
     ipaddress        => '*',
     ports            => '443',
     mode             => 'tcp',
-    options          => [
-#      { 'default_backend' => 'puppet_backend00' },
-      { 'timeout client' => '30s' },
-      { 'option' => 'socket-stats' },
-      { 'tcp-request' => ['inspect-delay 5s', 'content accept if { req_ssl_hello_type 1 }' ] },
-    ],
+    options          => {
+      'balance' => 'roundrobin',
+    },
   }
 
-  haproxy::balancermember { 'haproxy':
+  haproxy::balancermember { 'members80':
     listening_service => 'haproxy80',
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
     ports             => '80',
     options           => 'check',
   }
+
+  haproxy::balancermember { 'members443':
+    listening_service => 'haproxy443',
+    server_names      => $profile_haproxy::member_names,
+    ipaddresses       => $profile_haproxy::member_ips,
+    ports             => '443',
+    options           => 'check',
+  }
+
 }
