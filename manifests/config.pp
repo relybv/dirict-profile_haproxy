@@ -4,6 +4,15 @@
 #
 class profile_haproxy::config {
 
+  haproxy::listen { 'stats':
+    ipaddress => '127.0.0.1',
+    ports     => '9090',
+    options   => {
+      'mode'  => 'http',
+      'stats' => ['uri /','auth admin:admin'],
+    },
+  }
+
   haproxy::listen { 'haproxy80':
     collect_exported => false,
     ipaddress        => '*',
