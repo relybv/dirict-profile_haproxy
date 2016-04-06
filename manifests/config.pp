@@ -29,10 +29,11 @@ class profile_haproxy::config {
     ipaddress        => '*',
     ports            => '443',
     mode             => 'tcp',
-    options          => {
-      'option'  => ['tcp-request'],
-      'balance' => 'roundrobin',
-    },
+    options          => [
+      { 'default_backend' => 'puppet_backend00' },
+      { 'timeout client'  => '30s' },
+      { 'option' => [ 'tcplog', 'accept-invalid-http-request' ] }
+    ],
   }
 
   haproxy::balancermember { 'haproxy':
