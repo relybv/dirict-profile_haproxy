@@ -16,7 +16,6 @@ class profile_haproxy::config {
   }
 
   haproxy::balancermember { 'haproxy':
-    collect_exported  => false,
     listening_service => 'haproxy80',
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
