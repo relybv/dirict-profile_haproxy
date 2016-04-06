@@ -1,0 +1,24 @@
+{
+  "name": "dirict-profile_haproxy",
+  "version": "0.1.0",
+  "author": "P. Gomersbach",
+  "summary": "HA proxy profile",
+  "license": "Apache 2.0",
+  "source": "https://github.com/relybv/dirict-profile_haproxy.git",
+  "project_page": "https://github.com/relybv/dirict-profile_haproxy",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    }
+  ]
+}
