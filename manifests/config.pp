@@ -30,9 +30,10 @@ class profile_haproxy::config {
     ports            => '443',
     mode             => 'tcp',
     options          => [
-      { 'default_backend' => 'puppet_backend00' },
-      { 'timeout client'  => '30s' },
-      { 'option' => [ 'tcplog', 'accept-invalid-http-request' ] }
+#      { 'default_backend' => 'puppet_backend00' },
+      { 'timeout client' => '30s' },
+      { 'option' => 'socket-stats' },
+      { 'tcp-request' => ['inspect-delay 5s', 'content accept if { req_ssl_hello_type 1 }' ] },
     ],
   }
 
