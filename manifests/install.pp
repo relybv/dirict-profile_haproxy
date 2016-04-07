@@ -3,5 +3,7 @@
 # This class is called from profile_haproxy for install.
 #
 class profile_haproxy::install {
-  class { 'haproxy': }
+  class { 'haproxy':
+    global_options   => { 'log'     => "${monitor_address} local0" },
+  }
 }

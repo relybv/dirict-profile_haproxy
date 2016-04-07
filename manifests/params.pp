@@ -6,6 +6,7 @@
 class profile_haproxy::params {
   $member_ips = $::member_ips
   $member_names = $::member_names
+  $monitor_address = $::monitor_address
   case $::osfamily {
     'Debian': {
       $package_name = 'profile_haproxy'

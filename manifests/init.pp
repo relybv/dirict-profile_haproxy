@@ -10,7 +10,8 @@
 class profile_haproxy
 (
   $member_ips = split( $::profile_haproxy::params::member_ips, ','),
-  $member_names = split( $::profile_haproxy::params::member_names, ',')
+  $member_names = split( $::profile_haproxy::params::member_names, ','),
+  $monitor_address = $::profile_haproxy::params::monitor_address,
 ) inherits ::profile_haproxy::params {
 
   # validate parameters here
