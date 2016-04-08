@@ -5,7 +5,7 @@
 class profile_haproxy::install {
   if $::monitor_address != undef {
     class { 'haproxy':
-      global_options   => { 'log'     => "$::{monitor_address} local0" },
+      global_options   => { 'log'     => "${::monitor_address} local0" },
     }
   }
   else {
