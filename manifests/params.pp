@@ -6,14 +6,14 @@
 class profile_haproxy::params {
 
   if $::member_ips != undef {
-    $member_ips = split( $::member_ips, ',')
+    $member_ips = split( $::member_ips, ';')
   }
   else {
     $member_ips = 'localhost'
   }
 
   if $::member_names != undef {
-    $member_names = split( $::member_names, ',')
+    $member_names = split( $::member_names, ';')
   }
   else {
     $member_names = 'localhost'
