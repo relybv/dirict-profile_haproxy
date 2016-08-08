@@ -17,8 +17,6 @@ class profile_haproxy
 ) inherits ::profile_haproxy::params {
 
   # validate parameters here
-  validate_string($member_ips)
-  validate_string($member_names)
 
   class { '::profile_haproxy::install': } ->
   class { '::profile_haproxy::config': } ~>
