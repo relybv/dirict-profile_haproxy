@@ -32,9 +32,11 @@ class profile_haproxy::config {
     collect_exported => false,
     ipaddress        => '*',
     ports            => '443',
-    mode             => 'tcp',
+    mode             => 'http',
     options          => {
       'balance' => 'roundrobin',
+      'option' => 'forwardfor',
+      'option' => 'httplog',
     },
   }
 
