@@ -34,7 +34,7 @@ class profile_haproxy::config {
     ports            => '443',
     mode             => 'tcp',
     options          => {
-      'balance' => 'source',
+      'balance' => 'roundrobin',
     },
   }
 
