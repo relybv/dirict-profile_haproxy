@@ -35,8 +35,7 @@ class profile_haproxy::config {
     mode             => 'http',
     options          => {
       'balance' => 'roundrobin',
-      'option' => 'forwardfor',
-      'option' => 'httplog',
+      'option' => ['httplog','forwardfor'],
     },
   }
 
