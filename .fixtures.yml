@@ -1,9 +1,8 @@
 fixtures:
-  forge_modules:
-    stdlib: "puppetlabs/stdlib"
-
   repositories:
-# profile module layout, default include ntp module
+    stdlib:
+      repo: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+      ref: "4.12.0"
     ntp: "https://github.com/puppetlabs/puppetlabs-ntp.git"
     rspec_monitor: "git://github.com/pgomersbach/test-rspec_monitor.git"
     concat: "https://github.com/puppetlabs/puppetlabs-concat.git"
