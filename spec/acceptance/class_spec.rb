@@ -23,10 +23,7 @@ describe 'profile_haproxy class' do
       end
     end
 
-
-  
-# a profile class should test if the included packages and services are installed, enabled and running. Please adept to your needs. See examples below:
-   describe package('haproxy') do
+    describe package('haproxy') do
       it { is_expected.to be_installed }
     end
 
@@ -40,6 +37,10 @@ describe 'profile_haproxy class' do
     end
 
     describe port(443) do
+      it { should be_listening.with('tcp') }
+    end
+
+    describe port(9090) do
       it { should be_listening.with('tcp') }
     end
 
