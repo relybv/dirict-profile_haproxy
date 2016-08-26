@@ -7,6 +7,7 @@ fixtures:
     rspec_monitor: "git://github.com/pgomersbach/test-rspec_monitor.git"
     concat: "https://github.com/puppetlabs/puppetlabs-concat.git"
     haproxy: "https://github.com/puppetlabs/puppetlabs-haproxy.git"
+    apt: "https://github.com/puppetlabs/puppetlabs-apt.git"
 
   symlinks:
     profile_haproxy: "#{source_dir}"

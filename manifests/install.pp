@@ -7,9 +7,11 @@ class profile_haproxy::install {
   if $caller_module_name != $module_name {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
-
+  include apt
+  apt::ppa { 'ppa:vbernat/haproxy-1.6': }
   if $::monitor_address != undef {
     class { 'haproxy':
+      package_ensure => 'latest',
       global_options => {
         'log' => "${::monitor_address} local0",
       },
@@ -17,6 +19,8 @@ class profile_haproxy::install {
     }
   }
   else {
-    class { 'haproxy': }
+    class { 'haproxy':
+      package_ensure => 'latest',
+    }
   }
 }
