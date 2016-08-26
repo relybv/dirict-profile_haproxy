@@ -51,7 +51,7 @@ class profile_haproxy::config {
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
     ports             => '443',
-    options           => 'check send-proxy',
+    options           => 'send-proxy',
   }
 
 }
