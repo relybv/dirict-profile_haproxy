@@ -35,7 +35,6 @@ class profile_haproxy::config {
     mode             => 'tcp',
     options          => {
       'balance' => 'source',
-      'option'  => ['httplog','forwardfor'],
     },
   }
 
@@ -52,7 +51,7 @@ class profile_haproxy::config {
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
     ports             => '443',
-    options           => 'check',
+    options           => 'check send-proxy',
   }
 
 }
