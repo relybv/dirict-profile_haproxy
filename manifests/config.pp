@@ -92,7 +92,7 @@ class profile_haproxy::config {
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
     ports             => '443',
-    options           => 'send-proxy',
+    options           => 'check port 80 ssl verify none',
   }
 
 }
