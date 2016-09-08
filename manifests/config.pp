@@ -33,8 +33,8 @@ class profile_haproxy::config {
   # new http backend
   haproxy::backend { 'appl80':
     collect_exported => false,
-    mode    => 'http',
-    options => {
+    mode             => 'http',
+    options          => {
       'option'  => [
         'httplog',
         'forwardfor',
