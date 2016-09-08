@@ -32,13 +32,15 @@ class profile_haproxy::config {
 
   # new http backend
   haproxy::backend { 'appl80':
-    mode             => 'http',
+    mode    => 'http',
     options => {
       'option'  => [
         'httplog',
         'forwardfor',
       ],
       'balance' => 'roundrobin',
+      'log'     => 'global',
+      'stats'   => 'enable',
     },
   }
 
@@ -79,6 +81,8 @@ class profile_haproxy::config {
       'balance'                                   => 'source',
       'http-request set-header X-Forwarded-Port'  => '%[dst_port]',
       'http-request add-header X-Forwarded-Proto' => 'https',
+      'log'                                       => 'global',
+      'stats'                                     => 'enable',
     },
   }
 
