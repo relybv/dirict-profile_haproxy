@@ -25,7 +25,6 @@ class profile_haproxy::config {
     mode             => 'http',
     options          => {
       'default_backend' => 'appl80',
-      'balance'         => 'roundrobin',
       'log'             => 'global',
       'option'          => 'forwardfor',
     },
