@@ -47,7 +47,7 @@ class profile_haproxy::config {
 
   # old ok balancemember
   haproxy::balancermember { 'members80':
-    listening_service => 'haproxy80',
+    listening_service => 'appl80',
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
     ports             => '80',
@@ -89,7 +89,7 @@ class profile_haproxy::config {
 
   # old ok balancemember
   haproxy::balancermember { 'members443':
-    listening_service => 'haproxy443',
+    listening_service => 'appl443',
     server_names      => $profile_haproxy::member_names,
     ipaddresses       => $profile_haproxy::member_ips,
     ports             => '443',
