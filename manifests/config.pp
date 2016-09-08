@@ -32,6 +32,7 @@ class profile_haproxy::config {
 
   # new http backend
   haproxy::backend { 'appl80':
+    mode             => 'http',
     options => {
       'option'  => [
         'httplog',
