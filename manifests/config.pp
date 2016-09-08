@@ -9,11 +9,11 @@ class profile_haproxy::config {
   }
 
   haproxy::listen { 'stats':
-    ipaddress => '127.0.0.1',
+    ipaddress => '0.0.0.0',
     ports     => '9090',
     options   => {
       'mode'  => 'http',
-      'stats' => ['uri /','auth admin:admin'],
+      'stats' => ['uri /'],
     },
   }
 
