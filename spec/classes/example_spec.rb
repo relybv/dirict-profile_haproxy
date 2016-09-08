@@ -6,7 +6,10 @@ describe 'profile_haproxy' do
       context "on #{os}" do
         let(:facts) do
           facts.merge({
-            :concat_basedir => "/foo"
+            :concat_basedir  => "/foo",
+            :member_ips      => "127.0.0.1",
+            :member_names    => "localhost",
+            :monitor_address => "localhost",
           })
         end
 
