@@ -59,7 +59,7 @@ class profile_haproxy::config {
     collect_exported => false,
     mode             => 'http',
     bind             => {
-      '*:443' => ['ssl', 'crt', '/etc/ssl/private/example.com.pem'],
+      '*:443' => ['ssl', 'crt', '/etc/ssl/private/star_notarisdossier_nl.pem'],
     },
     options          => {
       'option'                      => [
