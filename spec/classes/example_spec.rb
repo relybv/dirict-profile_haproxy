@@ -25,6 +25,14 @@ describe 'profile_haproxy' do
 
           it { is_expected.to contain_apt__ppa('ppa:vbernat/haproxy-1.6') }
 
+          it { is_expected.to contain_haproxy__backend('appl443') }
+          it { is_expected.to contain_haproxy__backend('appl80') }
+          it { is_expected.to contain_haproxy__balancermember('members443') }
+          it { is_expected.to contain_haproxy__balancermember('members80') }
+          it { is_expected.to contain_haproxy__frontend('haproxy443') }
+          it { is_expected.to contain_haproxy__frontend('haproxy00') }
+          it { is_expected.to contain_haproxy__listen('stats') }
+
         end
       end
     end
