@@ -18,6 +18,12 @@ describe 'profile_haproxy' do
 
           it { is_expected.to compile.with_all_deps }
           it { is_expected.to contain_class('profile_haproxy') }
+          it { is_expected.to contain_class('profile_haproxy::config') }
+          it { is_expected.to contain_class('profile_haproxy::install') }
+          it { is_expected.to contain_class('profile_haproxy::params') }
+          it { is_expected.to contain_class('profile_haproxy::service') }
+
+          it { is_expected.to contain_apt__ppa('ppa:vbernat/haproxy-1.6') }
 
         end
       end
