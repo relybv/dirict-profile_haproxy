@@ -16,9 +16,9 @@ class profile_haproxy
 
   # validate parameters here
 
-  class { '::profile_haproxy::install': } ->
-  class { '::profile_haproxy::config': } ~>
-  class { '::profile_haproxy::service': } ->
-  Class['::profile_haproxy']
+  class { '::profile_haproxy::install': }
+  -> class { '::profile_haproxy::config': }
+  ~> class { '::profile_haproxy::service': }
+  -> Class['::profile_haproxy']
 
 }
