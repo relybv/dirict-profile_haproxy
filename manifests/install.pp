@@ -48,4 +48,9 @@ class profile_haproxy::install {
     merge_options    => true,
   }
 
+  # install haproxyctl gem
+  package {'haproxyctl':
+    ensure   => present,
+    provider => gem,
+  }
 }
