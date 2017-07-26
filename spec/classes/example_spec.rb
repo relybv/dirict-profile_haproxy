@@ -32,6 +32,7 @@ describe 'profile_haproxy' do
           it { is_expected.to contain_haproxy__frontend('haproxy443') }
           it { is_expected.to contain_haproxy__frontend('haproxy00') }
           it { is_expected.to contain_haproxy__listen('stats') }
+          it { is_expected.to contain_package('haproxyctl') }
 
         end
       end
