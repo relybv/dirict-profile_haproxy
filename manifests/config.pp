@@ -79,7 +79,7 @@ class profile_haproxy::config {
     collect_exported => false,
     mode             => 'http',
     options          => {
-      'balance'                                   => 'source',
+      'balance'                                   => 'roundrobin',
       'http-request set-header X-Forwarded-Port'  => '%[dst_port]',
       'http-request add-header X-Forwarded-Proto' => 'https',
       'log'                                       => 'global',
