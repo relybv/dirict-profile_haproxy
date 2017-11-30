@@ -8,10 +8,6 @@ class profile_haproxy::install {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-  # add haproxy ppa repo
-  include apt
-  apt::ppa { 'ppa:vbernat/haproxy-1.6': }
-
   if $::monitor_address != undef {
     $logserver =  "${::monitor_address} local0"
   }
@@ -19,18 +15,21 @@ class profile_haproxy::install {
     $logserver = '127.0.0.1 local0'
   }
 
-  # replace empty pem with undef
-  if $profile_haproxy::ssl_pem == '' {
-    $ssl_pem = undef
-  }
-  else {
-    $ssl_pem = $::profile_haproxy::ssl_pem
+  # add haproxy ppa repo
+  include apt
+  apt::ppa { 'ppa:vbernat/haproxy-1.6': }
+
+  # add latest ssl version
+  package { 'openssl':
+    ensure  => latest,
+    require => Exec['apt_update'],
   }
 
-  if $ssl_pem != undef {
+  if $profile_haproxy::ssl_pem == undef {
     exec { 'mk_pem':
       command => '/usr/bin/openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout star_notarisdossier_nl.key -out star_notarisdossier_nl.crt -subj "/CN=openstacklocal" -days 3650 && /bin/cat star_notarisdossier_nl.crt star_notarisdossier_nl.key > /etc/ssl/private/star_notarisdossier_nl.pem',
       creates => '/etc/ssl/private/star_notarisdossier_nl.pem',
+      before  => Class['haproxy'],
     }
   }
 
