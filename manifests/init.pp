@@ -12,6 +12,7 @@ class profile_haproxy
   $member_ips = $::profile_haproxy::params::member_ips,
   $member_names = $::profile_haproxy::params::member_names,
   $monitor_address = $::profile_haproxy::params::monitor_address,
+  $ssl_pem = $::profile_haproxy::params::ssl_pem,
 ) inherits ::profile_haproxy::params {
 
   # validate parameters here

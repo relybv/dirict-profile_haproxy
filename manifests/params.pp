@@ -20,6 +20,7 @@ class profile_haproxy::params {
   }
 
   $monitor_address = $::monitor_address
+  $ssl_pem = undef
 
   case $::osfamily {
     'Debian': {
