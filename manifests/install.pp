@@ -66,6 +66,6 @@ class profile_haproxy::install {
   # install haproxyctl gem
   package {'haproxyctl':
     ensure   => present,
-    provider => puppet_gem,
+    provider => gem,
   }
 }
